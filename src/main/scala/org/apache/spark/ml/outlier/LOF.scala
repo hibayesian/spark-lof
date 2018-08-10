@@ -190,7 +190,7 @@ class LOF(
     var count = 0 // the size of distinct instances
     data.foreach { case (idx: Long, vec: Vector) =>
       val targetDist = distType match {
-        case LOF.euclidean => Vectors.sqdist(target, vec)
+        case LOF.euclidean => math.sqrt(Vectors.sqdist(target, vec))
         case _ => throw new IllegalArgumentException(s"Distance type $distType is not supported now.")
       }
       // targetDist equals zero when computing distance between vec and itself
