@@ -28,7 +28,7 @@ val endTime = System.currentTimeMillis()
 result.count()
     
 // Outliers have much higher LOF value than normal data
-result.sort(desc(LOF.lof)).head(10).foreach { row =>
+result.sort(desc("lof")).head(10).foreach { row =>
   println(row.get(0) + " | " + row.get(1) + " | " + row.get(2))
 }
 println("Total time = " + (endTime - startTime) / 1000.0 + "s")
